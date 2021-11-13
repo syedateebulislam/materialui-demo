@@ -34,8 +34,11 @@ function createData(moduleName, totalIssue, blocker, critical, major, minor, dat
     minor,
     date,
     history: [
-      { date: '2020-01-05', customerId: '11091700', amount: 3 },
-      { date: '2020-01-02', customerId: 'Anonymous', amount: 1 },
+      { moduleName: 'CT', totalIssue: 72, blocker: 22 , critical: 30 , major: 10, minor: 10, date: '23-Oct-21' },
+      { moduleName: 'CT', totalIssue: 92, blocker: 32 , critical: 15 , major: 23, minor: 22, date: '03-Oct-21' },
+      { moduleName: 'CT', totalIssue: 110, blocker: 42 , critical: 20 , major: 34, minor: 14, date: '18-Sep-21' },
+      { moduleName: 'CT', totalIssue: 129, blocker: 51 , critical: 24 , major: 41, minor: 13, date: '07-Sep-21' },
+      { moduleName: 'CT', totalIssue: 152, blocker: 60 , critical: 28 , major: 55, minor: 9, date: '11-Aug-21' },
     ],
   };
 }
@@ -68,7 +71,7 @@ function Row(props) {
 
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
 
           <Collapse in={open} timeout="auto" unmountOnExit>
 
@@ -80,25 +83,30 @@ function Row(props) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
-                  </TableRow>
+                    <TableCell>Module Name</TableCell>
+                    <TableCell>Total Issues</TableCell>
+                    <TableCell align="right">Blocker</TableCell>
+                    <TableCell align="right">Critical</TableCell>
+                    <TableCell align="right">Major</TableCell>
+                    <TableCell align="right">Minor</TableCell>
+                    <TableCell align="right">Date</TableCell>
+                    </TableRow>
                 </TableHead>
 
                 <TableBody>
                   {row.history.map((historyRow) => (
                     <TableRow key={historyRow.date}>
                       <TableCell component="th" scope="row">
-                        {historyRow.date}
+                        {historyRow.moduleName}
                       </TableCell>
 
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
-                      <TableCell align="right">
-                        {Math.round(historyRow.amount * row.price * 100) / 100}
-                      </TableCell>
+                      <TableCell>{historyRow.totalIssue}</TableCell>
+                      <TableCell align="right">{historyRow.blocker}</TableCell>
+                      <TableCell align="right">{historyRow.critical}</TableCell>
+                      <TableCell align="right">{historyRow.major}</TableCell>
+                      <TableCell align="right">{historyRow.minor}</TableCell>
+                      <TableCell align="right">{historyRow.date}</TableCell>
+                      
                       
                     </TableRow>
                   ))}
@@ -114,35 +122,31 @@ function Row(props) {
 
 Row.propTypes = {
   row: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    calories: PropTypes.number.isRequired,
-    fat: PropTypes.number.isRequired,
-    carbs: PropTypes.number.isRequired,
-    protein: PropTypes.number.isRequired,
+    moduleName: PropTypes.string.isRequired,
+    totalIssues: PropTypes.number.isRequired,
+    blocker: PropTypes.number.isRequired,
+    critical: PropTypes.number.isRequired,
+    major: PropTypes.number.isRequired,
+    minor: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
     history: PropTypes.arrayOf(
       PropTypes.shape({
+        moduleName: PropTypes.string.isRequired,
+        totalIssues: PropTypes.number.isRequired,
+        blocker: PropTypes.number.isRequired,
+        critical: PropTypes.number.isRequired,
+        major: PropTypes.number.isRequired,
+        minor: PropTypes.number.isRequired,
         date: PropTypes.string.isRequired,
-        customerId: PropTypes.string.isRequired,
-        amount: PropTypes.number.isRequired,
       }),
     ).isRequired,
-    price: PropTypes.number.isRequired,
+
   }).isRequired,
 };
 
 const rows = [
-  // createData('Frozen yoghurt', 159, 6.0, 24, 4.0, 3.99),
-  // createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
-  createData('CT', 56, 0, 7, 23, 23,'10-Nov-21'),
-  createData('PP', 90, 10, 20, 20, 40,'11-Nov-21'),
-// Module name,
-// total issue count,
-// blocker issue,
-// critical issue,
-// major issue,
-// minor issue,
-// Report creation Date
-
+  createData('CT', 56, 0, 7, 23, 26,'14-Nov-21'),
+  createData('PP', 90, 10, 20, 20, 40,'06-Nov-21'),
  ];
 
 export default function CollapsibleTableSonar() {
