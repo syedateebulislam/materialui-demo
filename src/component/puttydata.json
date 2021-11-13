@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "Env":"pymtusr1",
+        "User":"172.10.21.54",
+        "Command":"cd .."
+    },
+    {
+        "id":2,
+        "Env":"pymtusr5",
+        "User":"172.10.21.51",
+        "Command":"sh restart.sh"
+    },
+    {
+        "id":3,
+        "Env":"pymtusr6",
+        "User":"172.10.27.48",
+        "Command":"sh restartBancsHome.sh"
+    },
+    {
+        "id":4,
+        "Env":"pymtusr13",
+        "User":"172.10.21.54",
+        "Command":"sh restartBancsHome.sh"
+    },
+    {
+        "id":5,
+        "Env":"pymtusr16",
+        "User":"172.10.21.51",
+        "Command":"cd .."
+    },
+    {
+        "id":6,
+        "Env":"pymtusr5",
+        "User":"172.10.121.32",
+        "Command":"sh restartBancsHome.sh"
+    }
+    ]

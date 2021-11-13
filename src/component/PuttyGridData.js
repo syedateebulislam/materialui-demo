@@ -15,7 +15,7 @@ const PuttyGridData = () => {
    ];
 
    return (
-       <div className="ag-theme-alpine" style={{height: 300, width: 300}}>
+       <div className="ag-theme-alpine" style={{height: 300, width: 600}}>
            <AgGridReact
                rowData={rowData}>
                <AgGridColumn field="Environment" sortable={ true } filter={ true }></AgGridColumn>

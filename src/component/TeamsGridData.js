@@ -11,7 +11,7 @@ const TeamsGridData = () => {
    ];
 
    return (
-       <div className="ag-theme-alpine" style={{height: 300, width: 300}}>
+       <div className="ag-theme-alpine" style={{height: 300, width: 600}}>
            <AgGridReact
                rowData={rowData}>
                <AgGridColumn field="Username" sortable={ true } filter={ true }></AgGridColumn>
